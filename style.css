@@ -1,0 +1,133 @@
+/* Allmänna inställningar för body */
+body {
+    font-family: Arial, sans-serif; /* Standardfont */
+    background-color: #000c1f; /* Mörkblå bakgrund för att ge en rymd-/universumkänsla */
+    color: white; /* Vit textfärg för bra kontrast mot den mörka bakgrunden */
+    text-align: center; /* Centrerar texten på sidan */
+    margin: 0; /* Tar bort standardmarginaler */
+    padding: 0; /* Tar bort standardpadding */
+}
+
+/* Rubrik (Huvudrubrik för sidan) */
+h1 {
+    margin-top: 30px; /* Lägger till utrymme ovanför rubriken */
+    font-size: 36px; /* Storlek på rubriken */
+}
+
+/* Sökfält */
+#search-input {
+    margin: 1vw; /* Lägger till marginal runt sökfältet */
+    padding: 1rem; /* Inre avstånd för att göra sökfältet lättare att använda */
+    font-size: 1vw; /* Justerar fontstorleken baserat på viewportens bredd */
+    border: none; /* Ingen ram runt sökfältet */
+    border-radius: 5px; /* Rundade hörn på sökfältet */
+    width: 80%; /* Bredd på sökfältet som en procent av viewportens bredd */
+    max-width: 500px; /* Sätter ett maximalt värde för bredden */
+    box-sizing: border-box; /* Inkluderar padding och border i bredden */
+    height: 3rem; /* Standardhöjd för att göra det lättare att interagera */
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Lägger till en mjuk övergångseffekt för border och box-shadow */
+}
+
+/* Fokus på sökfält (När användaren klickar på fältet) */
+#search-input:focus {
+    outline: none; /* Tar bort standarden för focus-outline */
+    border: 2px solid #D24848; /* Röd ram vid fokus */
+    box-shadow: 0 0 5px rgba(210, 72, 72, 0.5); /* Lägger till en skugga runt fältet vid fokus */
+}
+
+/* Solar system container (Container för att visa planeter) */
+#solar-system {
+    display: flex; /* Använder flexbox för att arrangera planeterna */
+    justify-content: center; /* Centrerar elementen horisontellt */
+    align-items: center; /* Centrerar elementen vertikalt */
+    flex-wrap: wrap; /* Gör att elementen radbryts vid behov */
+    min-height: 100vh; /* Säkerställer att container tar upp hela höjden av viewporten */
+    position: relative; /* För att kunna positionera solen absolut i förhållande till denna container */
+}
+
+/* Solens kort */
+.planet-card.solen {
+    position: absolute; /* Fixerar solens position i mitten av containern */
+    top: 50%; /* Vertikalt centrerad */
+    left: 50%; /* Horisontellt centrerad */
+    transform: translate(-50%, -50%); /* Justerar så att mitten av solen är exakt i mitten av containern */
+    z-index: 1; /* Säkerställer att solen visas över andra planeter */
+    width: 20vw; /* Solens storlek baseras på 20% av viewportens bredd */
+    height: 20vw; /* Solens höjd sätts lika stor som bredden för att behålla proportionerna */
+    border-radius: 50%; /* Gör solen rund */
+    background-color: #ffcc00; /* Guldgul färg för solen */
+    display: flex; /* Använd flexbox för att centrera eventuella barnelement inom solen */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Planetskorten (Planeterna) */
+.planet-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent vit bakgrund för planetkortet */
+    padding: 1rem; /* Utrymme runt innehållet i kortet */
+    border-radius: 50%; /* Gör planeten rund */
+    width: 30vw; /* Bredden på planetkortet är 30% av viewportens bredd */
+    height: 30vh; /* Höjden är 30% av viewportens höjd */
+    display: flex; /* Flexbox för att centrera innehållet inom kortet */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Förändrar markören när användaren hovrar över planeten */
+    transition: transform 0.3s; /* Lägger till en övergångseffekt för transformeringen */
+}
+
+/* Hovring på planetskortet (När användaren hovrar över planeten) */
+.planet-card:hover {
+    transform: scale(1.1); /* Gör planeten något större när användaren hovrar */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Lägger till en skugga runt planeten */
+    transition: transform 0.3s, box-shadow 0.3s; /* Mjuk övergångseffekt för både transform och box-shadow */
+}
+
+/* Information om planeten */
+#planet-info {
+    margin-top: 40px; /* Avstånd ovanför planetsinformationen */
+    display: none; /* Dölj planetsinformationen som standard */
+    background-color: rgba(0, 0, 0, 0.6); /* Halvtransparent svart bakgrund */
+    padding: 20px; /* Inre avstånd för planetsinformationen */
+    border-radius: 10px; /* Rundade hörn på informationsrutan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lägger till en skugga för att lyfta informationen */
+    max-width: 600px; /* Maxbredd för planetsinformationen */
+    margin-left: auto;
+    margin-right: auto; /* Centrerar planetsinformationen horisontellt */
+}
+
+/* Planetsnamnet */
+#planet-name {
+    font-size: 28px; /* Större textstorlek för planetnamnet */
+    color: #FFD700; /* Guldgul färg för planetnamnet */
+}
+
+/* Planetsbeskrivning */
+#planet-description {
+    font-size: 18px; /* Liten textstorlek för beskrivningen */
+    margin-top: 10px; /* Avstånd ovanför beskrivningen */
+}
+
+/* Mobilanpassning (För skärmar som är mindre än 768px i bredd) */
+@media (max-width: 768px) {
+    #solar-system {
+        flex-direction: column; /* Ändrar layouten till en kolumn på mindre skärmar */
+        justify-content: center; /* Centrerar planeterna på mindre skärmar */
+    }
+
+    .planet-card {
+        width: 20vw; /* Planeterna blir mindre på små skärmar */
+        height: 20vw; /* Håller förhållandet mellan bredd och höjd på planeten */
+        max-width: 120px; /* Sätter en maxbredd för planetkortet */
+        max-height: 120px; /* Sätter en maxhöjd för planetkortet */
+    }
+
+    #search-input {
+        width: 90%; /* Gör sökfältet bredare på mindre skärmar */
+        font-size: 4vw; /* Minskar fontstorleken för att passa bättre på mindre skärmar */
+    }
+}
+
+/* Döljer element */
+.hidden {
+    display: none; /* Dölj element med klassen .hidden */
+}

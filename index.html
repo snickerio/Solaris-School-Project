@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planeter i Solsystemet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Huvudrubrik för sidan -->
+    <h1>Vårt Solsystem</h1>
+
+    <!-- Sökfält för att filtrera planeter -->
+    <input type="text" id="search-input" placeholder="Sök planeter..." />
+
+    <!-- Container där alla planeter kommer att renderas -->
+    <div id="solar-system"></div> <!-- Här kommer planeterna att visas -->
+
+    <!-- Sektion för att visa detaljer om den valda planeten -->
+    <div id="planet-info">
+        <!-- Namnet på planeten -->
+        <h2 id="planet-name"></h2>
+        <!-- Beskrivning av planeten -->
+        <p id="planet-description"></p>
+        <!-- Rotationstid på planeten -->
+        <p><strong>Rotation:</strong> <span id="planet-rotation"></span> jorddygn</p>
+        <!-- Avstånd från solen -->
+        <p><strong>Avstånd från solen:</strong> <span id="planet-distance"></span> km</p>
+        <!-- Månorna som planeten har -->
+        <p><strong>Mån:</strong> <span id="planet-moons"></span></p>
+    </div>
+
+    <!-- Länkar till JavaScript-filen för funktionalitet -->
+    <script src="script.js"></script>
+</body>
+</html>
